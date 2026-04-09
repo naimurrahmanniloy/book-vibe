@@ -5,19 +5,40 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to={"/"} className={()=> }>Home</NavLink>
+        <NavLink
+          to={"/"}
+          className={({ isActive }) =>
+            `font-semibold mr-2 ${isActive ? "text-green-500 border border-green-500" : ""}`
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/books"}>Listed-Books</NavLink>
+        <NavLink
+          to={"/books"}
+          className={({ isActive }) =>
+            `font-semibold mr-2 ${isActive ? "text-green-500 border border-green-500" : ""}`
+          }
+        >
+          Listed-Books
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/page-to-read"}>Page To Read</NavLink>
+        <NavLink
+          to={"/page-to-read"}
+          className={({ isActive }) =>
+            `font-semibold mr-2 ${isActive ? "text-green-500 border border-green-500" : ""}`
+          }
+        >
+          Page To Read
+        </NavLink>
       </li>
     </>
   );
   return (
-    <div>
-      <div className="navbar bg-base-100 shadow-sm">
+    <div className="bg-base-100 shadow-sm">
+      <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -49,8 +70,9 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="navbar-end gap-4">
+          <button className="btn btn-success text-white">Sign In</button>
+          <button className="btn btn-accent text-white">Sign Up</button>
         </div>
       </div>
     </div>
